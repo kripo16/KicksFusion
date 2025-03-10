@@ -292,9 +292,11 @@ nav ul li a:hover {
     justify-content: center;
     margin-top: 3rem;
     position: absolute;
-    z-index: 5; 
-    right: 48vw;
+    z-index: 5;
+    left: 50%;
+    transform: translateX(-50%);
 }
+
 
 .show-all-btn {
     padding: 10px;
