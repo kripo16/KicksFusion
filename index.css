@@ -147,6 +147,7 @@ nav ul li a:hover {
 .featured {
     padding: 4rem 1rem;
     max-width: 1200px;
+    overflow: hidden;
     margin: 0 auto;
 }
 
@@ -155,6 +156,10 @@ nav ul li a:hover {
     margin-bottom: 3rem;
     font-size: 2rem;
     color: var(--dark);
+}
+
+.section-title.white {
+    color: #FFF;
 }
 
 .section-title::after {
@@ -170,11 +175,14 @@ nav ul li a:hover {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 2rem;
+
 }
+
 
 .product-card {
     background-color: white;
     border-radius: 10px;
+    cursor: pointer;
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
@@ -186,6 +194,12 @@ nav ul li a:hover {
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
 
+
+.products.hidden {
+    opacity: 0.5;
+    max-height: 80px; /* Slightly visible to hint there's more */
+    margin-top: 20px;
+}
 .product-image {
     height: 200px;
     overflow: hidden;
@@ -277,6 +291,9 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
     margin-top: 3rem;
+    position: absolute;
+    z-index: 5; 
+    right: 48vw;
 }
 
 .show-all-btn {
@@ -302,6 +319,9 @@ nav ul li a:hover {
 .categories {
     background-color: var(--secondary);
     padding: 4rem 1rem;
+    border: 5px solid crimson;
+    border-right: none;
+    border-left: none;
     color: white;
 }
 
