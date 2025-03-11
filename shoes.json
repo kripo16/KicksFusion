@@ -1,0 +1,83 @@
+{
+  "featured": [
+    {
+      "id": 1,
+      "brand": "Nike",
+      "name": "Air Jordan 1 Retro High",
+      "image": "images/air-jordan-1-retro-high.png",
+      "price": 8000,
+      "priceBefore": 10000,
+      "currency": "DZD"
+    },
+    {
+      "id": 2,
+      "brand": "Adidas",
+      "name": "Yeezy Boost 350 V2",
+      "image": "images/yeezy-boost-350.jpg",
+      "price": 6500,
+      "priceBefore":2000,
+      "currency": "DZD"
+    },
+    {
+      "id": 3,
+      "brand": "New Balance",
+      "name": "550 White Green",
+      "image": "images/new-balance-550.jpg",
+      "price": 4900,
+      "priceBefore": 6900,
+      "currency": "DZD"
+    },
+    {
+      "id": 4,
+      "brand": "Puma",
+      "name": "Suede Classic XXI",
+      "image": "images/puma-suede-classic.jpg",
+      "price": 3500,
+      "currency": "DZD"
+    }
+  ],
+  "hidden": [
+    {
+      "id": 5,
+      "image": "images/air-jordan-1-high-black-n-white.jpg",
+      "alt": "Air Jordan 1 High Black n White"
+    },
+    {
+      "id": 6,
+      "image": "images/air-jordan-1-high-grey.jpg",
+      "alt": "Air Jordan 1 High Black n White"
+    },
+    {
+      "id": 7,
+      "image": "images/air-jordan-1-high-retro-grey.jpg",
+      "alt": "Air Jordan 1 High Retro Grey"
+    },
+    {
+      "id": 8,
+      "image": "images/air-jordan.jpg",
+      "alt": "Air Jordan One"
+    }
+  ],
+  "categories": [
+    {
+      "id": 1,
+      "name": "Basketball",
+      "image": "https://ae01.alicdn.com/kf/Sfe0e3e6df39946b28ad9cae01fd53740U.jpg_640x640q90.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Lifestyle",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRxDsAluv0zfcS3lVkKx8I6x_y0Gv6EkAUdBVmSki3V1JSNsDdvjxUt4k2edWhuLDsrYbs&usqp=CAU"
+    },
+    {
+      "id": 3,
+      "name": "Running",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5q0EbxKYTWe7pq6B3UY6KchNf6K3pBwa3398hPBIs2BUOsq_XCTp-VsE28A3HANxkxUI&usqp=CAU"
+    },
+    {
+      "id": 4,
+      "name": "Limited Edition",
+      "image": "https://s.yimg.com/ny/api/res/1.2/JCrAjixAcB99oX0mV0NvXw--/YXBwaWQ9aGlnaGxhbmRlcjt3PTEyNDI7aD04Mjg-/https://media.zenfs.com/en-US/homerun/footwear_news_642/c2a1207c875cb7cfa78d04db456cbe2e"
+    }
+  ]
+}
