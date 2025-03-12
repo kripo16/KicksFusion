@@ -129,4 +129,19 @@ function loadCategories(categories) {
         
         categoriesContainer.appendChild(categoryCard);
     });
+
+    const cards = document.querySelectorAll(".product-card");
+
+    const observer = new IntersectionObserver(
+        (entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("show");
+                }
+            });
+        },
+        { threshold: 0.2 } // Adjust how much of the card needs to be visible before animation triggers
+    );
+
+    cards.forEach((card) => observer.observe(card));
 }

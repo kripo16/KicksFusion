@@ -247,7 +247,6 @@ nav ul li a:hover {
 
 }
 
-
 .product-card {
     background-color: white;
     border-radius: 10px;
@@ -256,15 +255,22 @@ nav ul li a:hover {
     flex-direction: column;
     overflow: scroll;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
     max-height: fit-content;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, opacity 2s ease;
 }
 
+.product-card.show {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 .product-card:hover {
     transform: translateY(-10px);
     box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
 }
+
 
 
 .products.hidden {
