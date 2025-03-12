@@ -1,0 +1,20 @@
+[
+    {
+        "id": 1,
+        "brand": "Nike",
+        "name": "Air Jordan 1 Retro High",
+        "image": "images/air-jordan-1-retro-high.png",
+        "price": 8000,
+        "priceBefore": 10000
+      },
+    {
+        "name": "Adidas Ultraboost",
+        "price": 150,
+        "image": "../images/product2.jpg"
+    },
+    {
+        "name": "Puma RS-X",
+        "price": 90,
+        "image": "../images/product3.jpg"
+    }
+]

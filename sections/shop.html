@@ -6,32 +6,25 @@
     <title>Shop Page</title>
     <link rel="stylesheet" href="../css/shop.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
-
 </head>
 <body>
-    <!-- Header (Same as Home Page) -->
+    <!-- Header -->
     <header>
         <div class="header-container">
-        <div style="align-items: center; display: flex; gap: 10px;cursor: pointer;">
-            <img src="../images/logo.png" alt="">
-            <a href="../index.html" class="logo">Kicks<span>Fusion</span></a>
-        </div>
-        
-        
+            <div style="align-items: center; display: flex; gap: 10px; cursor: pointer;">
+                <img src="../images/logo.png" alt="">
+                <a href="../index.html" class="logo">Kicks<span>Fusion</span></a>
+            </div>
             <button class="mobile-menu-btn">≡</button>
             <nav>
                 <ul class="nav-menu">
                     <li><a href="../index.html">Home</a></li>
                     <li><a href="shop.html">Shop</a></li>
-                    <li><a href="#">Collections</a></li>
-                    <li><a href="#"><i class='bx bx-search' ></i></a></li>
+                    <li><a href="collections.html">Collections</a></li>
                 </ul>
             </nav>
         </div>
-
-        <div class="announce">
-            Livraison 58 wilaya !!
-        </div>
+        <div class="announce">Livraison 58 wilaya !!</div>
     </header>
 
     <!-- Shop Page Content -->
@@ -46,29 +39,13 @@
         </section>
 
         <section class="product-grid" id="product-list">
-            <!-- Sample Product Cards -->
-            <div class="product-card" data-name="Product A" data-price="20">
-                <img src="product1.jpg" alt="Product A">
-                <h2>Product A</h2>
-                <p>$20</p>
-            </div>
-            <div class="product-card" data-name="Product B" data-price="15">
-                <img src="product2.jpg" alt="Product B">
-                <h2>Product B</h2>
-                <p>$15</p>
-            </div>
-            <div class="product-card" data-name="Product C" data-price="30">
-                <img src="product3.jpg" alt="Product C">
-                <h2>Product C</h2>
-                <p>$30</p>
-            </div>
+            <!-- Products will be loaded here dynamically -->
         </section>
     </main>
 
-    <!-- Footer (Same as Home Page) -->
+    <!-- Footer -->
     <footer>
         <div class="footer-container">
-            <!-- About -->
             <div class="footer-about">
                 <div class="footer-logo">Kicks<span>Fusion</span></div>
                 <p>Premium sneakers curated for true enthusiasts. Our mission is to bring you the most exclusive and limited edition kicks from around the world.</p>
@@ -78,27 +55,21 @@
                 </div>
             </div>
             
-            <!-- Links 1 -->
             <div class="footer-links">
                 <h3>Shop</h3>
                 <ul>
                     <li><a href="../index.html">Home</a></li>
-
                     <li><a href="shop.html">All Products</a></li>
                     <li><a href="collections.html">Collections</a></li>
                 </ul>
             </div>
             
-            <!-- Links 2 -->
             <div class="footer-links">
                 <h3>Support</h3>
                 <ul>
                     <li><a href="#">Contact Us</a></li>
                 </ul>
             </div>
-            
-            <!-- Links 3 -->
-            
         </div>
         
         <div class="footer-bottom">
@@ -106,16 +77,37 @@
         </div>
     </footer>
 
-
+    <!-- JavaScript -->
     <script>
-
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
-        const navMenu = document.querySelector('.nav-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+        document.addEventListener("DOMContentLoaded", () => {
+            loadProducts();
         });
+
+        function loadProducts() {
+            fetch("../data/shop.json") // Load JSON file
+                .then(response => response.json())
+                .then(products => {
+                    const productList = document.getElementById("product-list");
+                    productList.innerHTML = ""; // Clear existing products
+
+                    products.forEach(product => {
+                        const productCard = document.createElement("div");
+                        productCard.classList.add("product-card");
+                        productCard.setAttribute("data-name", product.name);
+                        productCard.setAttribute("data-price", product.price);
+
+                        productCard.innerHTML = `
+                            <img src="${product.image}" alt="${product.name}">
+                            <h2>${product.name}</h2>
+                            <p>$${product.price}</p>
+                        `;
+
+                        productList.appendChild(productCard);
+                    });
+                })
+                .catch(error => console.error("Error loading products:", error));
+        }
+
         function filterProducts() {
             let searchValue = document.getElementById("search-bar").value.toLowerCase();
             let products = document.querySelectorAll(".product-card");

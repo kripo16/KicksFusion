@@ -252,9 +252,12 @@ nav ul li a:hover {
     background-color: white;
     border-radius: 10px;
     cursor: pointer;
-    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    overflow: scroll;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s, box-shadow 0.3s;
+    max-height: fit-content;
 }
 
 
@@ -288,15 +291,43 @@ nav ul li a:hover {
     transition: transform 0.5s;
 }
 
-.product-card:hover .product-image img {
+.product-card:hover .product-image img, .promotion {
     transform: scale(1.1);
+
+}
+
+.product-card:hover > .promotion {
+    opacity: 0;
+}
+
+.promotion {
+    color: #fff; /* White text for better contrast */
+    padding: 5px 18px;
+    background: linear-gradient(135deg, #5e4646, #d01452); /* A gradient for a premium look */
+    max-width: max-content;
+    border-radius: 20px;
+    text-align: center;
+    margin-top: -3rem;
+    margin-bottom: 20px;
+    margin-left: 0.8rem;
+    font-weight: bold;
+    font-size: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Smooth shadow for depth */
+    z-index: 1000; /* Reduced to a reasonable number */
+    transition: all 0.5s;
 }
 
 .product-info {
+   
+    flex: 1; /* This makes it take all available space */
     padding: 1.5rem;
-    height: 100%;
     display: flex;
     flex-direction: column;
+    
+}
+
+.product-info .product-price-container {
+    margin-top: auto;
 }
 
 .button-clicked {
@@ -323,6 +354,10 @@ nav ul li a:hover {
 .product-name {
     font-size: 1.2rem;
     margin: 0.5rem 0;
+}
+
+.product-price-container {
+    justify-self: flex-end;
 }
 
 .product-price-before {
@@ -387,6 +422,8 @@ nav ul li a:hover {
     text-decoration: none;
     height: 60px;
     transition: transform 0.3s ease;
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 1);
+
 }
 
 .show-all-btn:hover {
@@ -581,8 +618,8 @@ footer {
 
 @media (max-width: 768px) {
     .nav-menu {
-        position: fixed;
-        top: 70px;
+        position: absolute;
+        top: 90px;
         left: -100%;
         flex-direction: column;
         background-color: var(--dark);
@@ -610,6 +647,12 @@ footer {
     .hero h1 {
         font-size: 2rem;
     }
-    
 
+}
+
+@media (max-width: 400px) {
+    .header-container img {
+        display: none;
+    }
+    
 }

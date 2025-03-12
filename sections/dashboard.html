@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Shoes</title>
+    <script>
+        let jsonData;
+
+        async function loadJSON() {
+            const response = await fetch('../shoes.json');
+            jsonData = await response.json();
+            displayData();
+        }
+
+        function displayData() {
+            const container = document.getElementById('shoeList');
+            container.innerHTML = '';
+            jsonData.featured.forEach((shoe, index) => {
+                container.innerHTML += `
+                    <div>
+                        <input type="text" value="${shoe.brand}" onchange="updateData(${index}, 'brand', this.value)">
+                        <input type="text" value="${shoe.name}" onchange="updateData(${index}, 'name', this.value)">
+                        <input type="number" value="${shoe.price}" onchange="updateData(${index}, 'price', this.value)">
+                        <input type="number" value="${shoe.priceBefore || ''}" onchange="updateData(${index}, 'priceBefore', this.value)">
+                        <input type="text" value="${shoe.image}" onchange="updateData(${index}, 'image', this.value)">
+                        <button onclick="removeShoe(${index})">Delete</button>
+                    </div>
+                `;
+            });
+        }
+
+        function updateData(index, key, value) {
+            jsonData.featured[index][key] = value;
+        }
+
+        function removeShoe(index) {
+            jsonData.featured.splice(index, 1);
+            displayData();
+        }
+
+        function addShoe() {
+            jsonData.featured.push({
+                id: jsonData.featured.length + 1,
+                brand: "",
+                name: "",
+                price: 0,
+                priceBefore: 0,
+                image: ""
+            });
+            displayData();
+        }
+
+        function saveChanges() {
+            fetch('save.php', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/json'},
+                body: JSON.stringify(jsonData)
+            }).then(response => response.text()).then(data => alert(data));
+        }
+
+        window.onload = loadJSON;
+    </script>
+</head>
+<body>
+    <h1>Manage Shoes</h1>
+    <button onclick="addShoe()">Add Shoe</button>
+    <div id="shoeList"></div>
+    <button onclick="saveChanges()">Save Changes</button>
+</body>
+</html>
