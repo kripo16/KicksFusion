@@ -108,15 +108,55 @@
             <div class="footer-links">
                 <h3>Support</h3>
                 <ul>
-                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#" class="open-modal" data-modal="contactModal">Contact Us</a></li>
+                    <li><a href="#" class="open-modal" data-modal="developerModal">Contact The Developer</a></li>
                 </ul>
             </div>
         </div>
         
         <div class="footer-bottom">
             <p>&copy; 2025 KicksFusion. All rights reserved.</p>
+            <p>Developed with 💗 by <span style="font-weight: bold; color: #FF5A5F;text-transform: uppercase;">Imad</span></p>
+
         </div>
     </footer>
+
+    <div id="contactModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Contact Us</h2>
+            <p>Have a question about our shoes? Need help choosing the perfect pair? We're here to assist you!</p>
+            <div class="contact-buttons">
+                <a href=#" target="_blank" class="contact-btn whatsapp-btn">
+                    <i class='bx bxl-whatsapp'></i> Whatsapp
+                </a>
+                <a href="https://www.instagram.com" target="_blank" class="contact-btn insta-btn">
+                    <i class='bx bxl-instagram-alt'></i> Instagram
+                </a>
+            </div>
+        </div>
+        
+    </div>
+    
+
+    <!-- Developer Contact Modal -->
+<div id="developerModal" class="modal">
+    <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Developed with 💗 by IMAD</h2>
+        <p>Feel free to reach out to me via email or Instagram!</p>
+        
+        <div class="contact-buttons">
+            <a href="mailto:kripoahhmail@gmail.com" class="contact-btn email-btn">
+                <i class='bx bxs-envelope'></i> Email me
+            </a>
+            <a href="https://www.instagram.com/brand_newkriipo" target="_blank" class="contact-btn insta-btn">
+                <i class='bx bxl-instagram-alt'></i> Instagram
+            </a>
+        </div>
+    </div>
+</div>
+
     
     <!-- Load our JavaScript file -->
     <script src="js/index.js"></script>

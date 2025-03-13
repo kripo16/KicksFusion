@@ -144,4 +144,59 @@ function loadCategories(categories) {
     );
 
     cards.forEach((card) => observer.observe(card));
+
+    const openModalButtons = document.querySelectorAll('.open-modal');
+    const closeButtons = document.querySelectorAll('.close');
+    const modals = document.querySelectorAll('.modal');
+
+    // Add click event to open modal buttons
+    openModalButtons.forEach(button => {
+        button.addEventListener('click', function(e) {
+            e.preventDefault();
+            const modalId = this.getAttribute('data-modal');
+            const modal = document.getElementById(modalId);
+            
+            // First display the modal (but still invisible)
+            modal.style.display = 'flex';
+            
+            // Allow the browser to process the display change
+            setTimeout(() => {
+                modal.classList.add('show');
+            }, 10);
+        });
+    });
+
+    // Add click event to close buttons
+    closeButtons.forEach(button => {
+        button.addEventListener('click', closeModal);
+    });
+
+    // Close modal when clicking outside content
+    modals.forEach(modal => {
+        modal.addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal(e);
+            }
+        });
+    });
+
+    // Close modal function
+    function closeModal(e) {
+        const modal = e.target.closest('.modal');
+        modal.classList.remove('show');
+        
+        // Wait for transition to complete before hiding the modal
+        setTimeout(() => {
+            modal.style.display = 'none';
+        }, 300); // Match this with your CSS transition duration
+    }
+
+
+
+    
+    window.addEventListener("click", function (e) {
+        if (e.target.classList.contains("modal")) {
+            e.target.style.display = "none";
+        }
+    });
 }
